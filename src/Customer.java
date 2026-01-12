@@ -1,36 +1,28 @@
 public class Customer {
-    private int customerId;
+    private int id;
     private String name;
-    private String phoneNumber;
+    private String phone;
     private int bonus;
 
-    public Customer(int customerId, String name, String phoneNumber, int bonus) {
-        this.customerId = customerId;
+    public Customer(int id, String name, String phone, int bonus) {
+        this.id = id;
         setName(name);
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         setBonus(bonus);
     }
 
-    public int getCustomerId() { return customerId; }
-    public String getName() { return name; }
-    public String getPhoneNumber() { return phoneNumber; }
-    public int getBonus() { return bonus; }
-
     public void setName(String name) {
-        if (name == null || name.trim().isEmpty()) {
-            this.name = "No Name";
-        } else {
-            this.name = name;
-        }
+        this.name = (name == null || name.trim().isEmpty()) ? "No Name" : name;
     }
 
     public void setBonus(int bonus) {
-        if (bonus < 0) {
-            this.bonus = 0;
-        } else {
-            this.bonus = bonus;
-        }
+        this.bonus = (bonus < 0) ? 0 : bonus;
     }
+
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public String getPhone() { return phone; }
+    public int getBonus() { return bonus; }
 
     public boolean isVIP() {
         return bonus > 100;
