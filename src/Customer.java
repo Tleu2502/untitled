@@ -19,10 +19,18 @@ public class Customer {
         this.bonus = (bonus < 0) ? 0 : bonus;
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public String getPhone() { return phone; }
-    public int getBonus() { return bonus; }
+    public int getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getPhone() {
+        return phone;
+    }
+    public int getBonus() {
+        return bonus;
+    }
 
     public boolean isVIP() {
         return bonus > 100;
