@@ -23,9 +23,11 @@ public class Customer {
         return id;
     }
     public String getName() {
+
         return name;
     }
     public String getPhone() {
+
         return phone;
     }
     public int getBonus() {

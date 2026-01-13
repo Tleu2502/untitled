@@ -40,12 +40,12 @@ public class Main {
 
     private static void showMenu() {
         System.out.println("\n=== CLOTHING STORE SYSTEM ===");
-        System.out.println("1. Add Clothing Item");
-        System.out.println("2. Add Accessory");
-        System.out.println("3. View All Products");
-        System.out.println("4. Add Customer");
-        System.out.println("5. View All Customers");
-        System.out.println("0. Exit");
+        System.out.println("1. Add Clothing Item 👔");
+        System.out.println("2. Add Accessory ⌚");
+        System.out.println("3. View All Products 🗃️");
+        System.out.println("4. Add Customer 🥷");
+        System.out.println("5. View All Customers 🙎");
+        System.out.println("0. Exit 👋");
         System.out.print("Choice: ");
     }
 
@@ -90,7 +90,7 @@ public class Main {
             if (p instanceof ClothingItem) {
                 System.out.println("  → This is clothing");
             } else if (p instanceof Accessory) {
-                System.out.println("  → This is accessory");
+                System.out.println("  → This is accessory");3
             }
             System.out.println();
         }
