@@ -1,3 +1,5 @@
+package model;
+
 public class Customer {
     private int id;
     private String name;
@@ -12,24 +14,31 @@ public class Customer {
     }
 
     public void setName(String name) {
-        this.name = (name == null || name.trim().isEmpty()) ? "No Name" : name;
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cant be empty");
+        }
+        this.name = name;
     }
 
     public void setBonus(int bonus) {
-        this.bonus = (bonus < 0) ? 0 : bonus;
+        if (bonus < 0) {
+            throw new IllegalArgumentException("Bonus cant be negative");
+        }
+        this.bonus = bonus;
     }
 
     public int getId() {
         return id;
     }
-    public String getName() {
 
+    public String getName() {
         return name;
     }
-    public String getPhone() {
 
+    public String getPhone() {
         return phone;
     }
+
     public int getBonus() {
         return bonus;
     }

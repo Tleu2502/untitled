@@ -1,3 +1,5 @@
+package model;
+
 public class Accessory extends Product {
     private String material;
 
@@ -6,13 +8,12 @@ public class Accessory extends Product {
         this.material = material;
     }
 
-    @Override
-    public String getInfo() {
-        return "Accessory → Material: " + material;
+    public String getMaterial() {
+        return material;
     }
 
     @Override
-    public String work() {
-        return "You can use " + getName() + " as accessory";
+    public String getRole() {
+        return "Accessory";
     }
 }
