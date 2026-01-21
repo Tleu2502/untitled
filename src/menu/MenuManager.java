@@ -66,12 +66,12 @@ public class MenuManager implements Menu {
     }
 
     private void addClothing() {
+
         System.out.print("Name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Price: ");
+        System.out.println("Price: ");
         double price = scanner.nextDouble();
-        scanner.nextLine();
 
         System.out.print("Category: ");
         String category = scanner.nextLine();
