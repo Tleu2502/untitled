@@ -1,8 +1,10 @@
 package menu;
+import database.CustomerDAO;
 
 import model.*;
 import exception.InvalidInputException;
 
+import java.awt.image.AbstractMultiResolutionImage;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,6 +12,7 @@ public class MenuManager implements Menu {
     private ArrayList<Product> products = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
+    private CustomerDAO customerDAO = new CustomerDAO();
 
     public MenuManager() {
         products.add(new ClothingItem("T-Shirt", 3500, "Casual"));
@@ -33,36 +36,31 @@ public class MenuManager implements Menu {
     public void run() {
         while (true) {
             displayMenu();
-            try {
-                int choice = scanner.nextInt();
-                scanner.nextLine();
 
-                if (choice == 1) {
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            try {
+                if (choice == 1 ){
                     addClothing();
-                } else if (choice == 2) {
+                }else if (choice == 2){
                     addAccessory();
-                } else if (choice == 3) {
+                }else if (choice == 3){
                     viewProducts();
-                } else if (choice == 4) {
+                }else if (choice == 4 ){
                     addCustomer();
-                } else if (choice == 5) {
+                }else if (choice == 5 ){
                     viewCustomers();
-                } else if (choice == 0) {
-                    System.out.println("Bye!");
+                }else if ( choice == 0 ){
+                    System.out.println("Good Bye!");
                     break;
-                } else {
-                    throw new InvalidInputException("Wrong choice");
+                }else  {
+                    System.out.println("Wrong Choice!");
                 }
             } catch (NumberFormatException e) {
-                scanner.nextLine();
-                System.out.println("Enter a number please");
-            } catch (IllegalArgumentException | InvalidInputException e) {
-                System.out.println("Error: " + e.getMessage());
+                scanner .nextLine();
+
             }
-            System.out.println("\nPress Enter...");
-            scanner.nextLine();
         }
-        scanner.close();
     }
 
     private void addClothing() {
@@ -123,7 +121,7 @@ public class MenuManager implements Menu {
         System.out.print("Bonus: ");
         int bonus = scanner.nextInt();
         scanner.nextLine();
-
+        customerDAO.addCustomer(new Customer(id, name, phone, bonus));
         customers.add(new Customer(id, name, phone, bonus));
         System.out.println("Added!");
     }
