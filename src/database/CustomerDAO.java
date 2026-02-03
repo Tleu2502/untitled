@@ -55,7 +55,7 @@ public class CustomerDAO {
         }
     }
 
-    // ========== DELETE ==========
+
     public boolean deleteCustomerById(int id) {
 
         String sql = "DELETE FROM customers WHERE id = ?";
@@ -72,7 +72,7 @@ public class CustomerDAO {
         }
     }
 
-    // ========== SEARCH BY NAME ==========
+
     public void searchCustomerByName(String name) {
 
         String sql = """
