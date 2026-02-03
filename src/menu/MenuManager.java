@@ -46,20 +46,20 @@ public class MenuManager implements Menu {
 
             try {
                 switch (choice) {
-                    case 1 -> addClothing();
-                    case 2 -> addAccessory();
-                    case 3 -> viewProducts();
-                    case 4 -> addCustomer();
-                    case 5 -> viewCustomers();
-                    case 6 -> updateCustomer();
-                    case 7 -> deleteCustomer();
-                    case 8 -> searchCustomerByName();
-                    case 9 -> searchCustomerByBonusRange();
-                    case 0 -> {
+                    case 1:addClothing();
+                    case 2: addAccessory();
+                    case 3: viewProducts();
+                    case 4: addCustomer();
+                    case 5: viewCustomers();
+                    case 6: updateCustomer();
+                    case 7 : deleteCustomer();
+                    case 8: searchCustomerByName();
+                    case 9: searchCustomerByBonusRange();
+                    case 0: {
                         System.out.println("Good Bye!");
                         return;
                     }
-                    default -> System.out.println("Wrong choice!");
+                    default : System.out.println("Wrong choice!");
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
@@ -68,7 +68,6 @@ public class MenuManager implements Menu {
         }
     }
 
-    // ================= PRODUCTS =================
 
     private void addClothing() {
         System.out.print("Name: ");
@@ -113,7 +112,7 @@ public class MenuManager implements Menu {
         }
     }
 
-    // ================= CUSTOMERS =================
+
 
     private void addCustomer() {
         System.out.print("ID: ");
