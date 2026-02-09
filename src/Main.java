@@ -1,7 +1,7 @@
-import menu.StoreMenu;
+import menu.MenuManager;
 
 public class Main {
     public static void main(String[] args) {
-        new StoreMenu().run();
+        new MenuManager().run();
     }
 }

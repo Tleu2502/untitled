@@ -1,6 +1,6 @@
 package model;
 
-public class Jacket extends Clothing {
+public class Jacket extends ClothingItem {
 
     private String season;
 
@@ -17,9 +17,5 @@ public class Jacket extends Clothing {
     @Override
     public String getExtraInfo() {
         return season;
-
-
-
-
     }
 }

@@ -1,4 +1,4 @@
- package database;
+package database;
 
 import model.Customer;
 
@@ -8,16 +8,17 @@ import java.util.List;
 
 public class CustomerDAO {
 
-    public void addCustomer(Customer c) {
+    public void add(Customer c) {
         String sql =
-                "INSERT INTO customers (id, name, bonus) VALUES (?, ?, ?)";
+                "INSERT INTO customers (id, name, phone, bonus) VALUES (?, ?, ?, ?)";
 
         try (Connection cn = DatabaseConnection.getConnection();
              PreparedStatement ps = cn.prepareStatement(sql)) {
 
             ps.setInt(1, c.getId());
             ps.setString(2, c.getName());
-            ps.setInt(3, c.getBonus());
+            ps.setString(3, c.getPhone());
+            ps.setInt(4, c.getBonusPoints());
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -25,7 +26,7 @@ public class CustomerDAO {
         }
     }
 
-    public List<Customer> getAllCustomers() {
+    public List<Customer> getAll() {
         List<Customer> list = new ArrayList<>();
         String sql = "SELECT * FROM customers";
 
@@ -37,12 +38,13 @@ public class CustomerDAO {
                 list.add(new Customer(
                         rs.getInt("id"),
                         rs.getString("name"),
+                        rs.getString("phone"),
                         rs.getInt("bonus")
                 ));
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException("Load customers error");
+            throw new RuntimeException("Load error");
         }
         return list;
     }
